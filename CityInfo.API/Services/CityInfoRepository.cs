@@ -111,6 +111,14 @@ namespace CityInfo.API.Services
         }
 
         /**
+         * Verifies that city name matches ciy id
+         */
+        public async Task<bool> CityNameMatchesCityId(string? cityName, int cityId)
+        {
+            return await _context.Cities.AnyAsync(c => c.Id == cityId && c.Name == cityName);
+        }
+
+        /**
          * Save DB changes
          */
         public async Task<bool> SaveChangesAsync()

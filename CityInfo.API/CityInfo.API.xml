@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CityInfo.API</name>
+    </assembly>
+    <members>
+        <member name="M:CityInfo.API.Controllers.CitiesController.GetCities(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Get all Cities. Able to filter, search, and page.
+            </summary>
+            <param name="name">City Name</param>
+            <param name="searchQuery">Search for Cities</param>
+            <param name="pageNumber">Page Number</param>
+            <param name="pageSize">Number of results on each page</param>
+            <returns>An IEnumberable of CityWithoutPointsOfInterestDto</returns>
+        </member>
+        <member name="M:CityInfo.API.Controllers.CitiesController.GetCity(System.Int32,System.Boolean)">
+            <summary>
+            Get a City by ID
+            </summary>
+            <param name="id">The ID of the city to get</param>
+            <param name="includePointsOfInterest">Whether or not to include Points of Interest</param>
+            <returns>An IActionResult</returns>
+            <response code="200">Returns the requested city</response>
+            <response code="404">Requested city is not found</response>
+            <response code="400">Bad Request</response>
+        </member>
+        <member name="M:CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest(System.Int32)">
+            Get points of interest by city
+        </member>
+        <member name="M:CityInfo.API.Controllers.PointsOfInterestController.GetPointOfInterest(System.Int32,System.Int32)">
+            Get a point of interest for a city
+        </member>
+        <member name="M:CityInfo.API.Controllers.PointsOfInterestController.CreatePointOfInterest(System.Int32,CityInfo.API.Models.PointOfInterestForCreationDto)">
+            Create a point of interest for a city
+        </member>
+        <member name="M:CityInfo.API.Controllers.PointsOfInterestController.UpdatePointOfInterest(System.Int32,System.Int32,CityInfo.API.Models.PointOfInterestForUpdateDto)">
+            Update a whole point of interst
+        </member>
+        <member name="M:CityInfo.API.Controllers.PointsOfInterestController.PartiallyUpdatePointOfInterest(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{CityInfo.API.Models.PointOfInterestForUpdateDto})">
+            Update a partial point of interest
+        </member>
+        <member name="M:CityInfo.API.Controllers.PointsOfInterestController.DeletePointOfInterest(System.Int32,System.Int32)">
+            Delete a point of interest
+        </member>
+        <member name="T:CityInfo.API.Migrations.CityInfoDBInitialMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.CityInfoDBInitialMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.CityInfoDBInitialMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.CityInfoDBInitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CityInfo.API.Migrations.CityInfoDBAddPointOfInterestDescription">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.CityInfoDBAddPointOfInterestDescription.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.CityInfoDBAddPointOfInterestDescription.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.CityInfoDBAddPointOfInterestDescription.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CityInfo.API.Migrations.DataSeed">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.DataSeed.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.DataSeed.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CityInfo.API.Migrations.DataSeed.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CityInfo.API.Models.CityWithoutPointsOfInterestDto">
+            <summary>
+            A DTO for a City without Points of Interest
+            </summary>
+        </member>
+        <member name="P:CityInfo.API.Models.CityWithoutPointsOfInterestDto.Id">
+            <summary>
+            ID of the City
+            </summary>
+        </member>
+        <member name="P:CityInfo.API.Models.CityWithoutPointsOfInterestDto.Name">
+            <summary>
+            The name of the City
+            </summary>
+        </member>
+        <member name="P:CityInfo.API.Models.CityWithoutPointsOfInterestDto.Description">
+            <summary>
+            The Description of the City
+            </summary>
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.GetCitiesAsync">
+            Get all cities
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.GetCitiesAsync(System.String,System.String,System.Int32,System.Int32)">
+            Filter and Search cities with paging
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.GetCityAsync(System.Int32,System.Boolean)">
+            Get a single city by ID.  Optional to include PointsOfInterest.
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.CityExistsAsync(System.Int32)">
+            Checks to see if a city exits by ID
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.GetPointOfInterestForCityAsync(System.Int32,System.Int32)">
+            Get a single PointsOfInterest for a City by cityId and pointOfInterestId.
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.GetPointsOfInterestForCityAsync(System.Int32)">
+            Get all PointsOfInterst for a City by cityId.
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.AddPointOfInterestForCityAsync(System.Int32,CityInfo.API.Entities.PointOfInterests)">
+            Add a PointOfInteret to a City
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.DeletePointOfInterest(CityInfo.API.Entities.PointOfInterests)">
+            Removes a PointOfInterst from a city
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.CityNameMatchesCityId(System.String,System.Int32)">
+            Verifies that city name matches ciy id
+        </member>
+        <member name="M:CityInfo.API.Services.CityInfoRepository.SaveChangesAsync">
+            Save DB changes
+        </member>
+    </members>
+</doc>

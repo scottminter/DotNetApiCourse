@@ -96,3 +96,13 @@ C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\obj\Release\net
 C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\obj\Release\net6.0\CityInfo.API.pdb
 C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\obj\Release\net6.0\CityInfo.API.genruntimeconfig.cache
 C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\obj\Release\net6.0\ref\CityInfo.API.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+C:\Users\ScottMinter\Development\DotNetAPI\CityInfo\CityInfo.API\bin\Release\net6.0\CityInfo.API.xml

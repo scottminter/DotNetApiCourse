@@ -1,13 +1,17 @@
 ﻿using AutoMapper;
 using CityInfo.API.Models;
 using CityInfo.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
 namespace CityInfo.API.Controllers
 {
     [ApiController]
-    [Route("api/cities")]
+    [Authorize]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/cities")]
     public class CitiesController : ControllerBase
     {
         private readonly ICityInfoRepository _cityInfoRepository;
@@ -20,9 +24,14 @@ namespace CityInfo.API.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        /**
-         * Get all cities
-         */
+        /// <summary>
+        /// Get all Cities. Able to filter, search, and page.
+        /// </summary>
+        /// <param name="name">City Name</param>
+        /// <param name="searchQuery">Search for Cities</param>
+        /// <param name="pageNumber">Page Number</param>
+        /// <param name="pageSize">Number of results on each page</param>
+        /// <returns>An IEnumberable of CityWithoutPointsOfInterestDto</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities(
             [FromQuery] string? name,
@@ -43,10 +52,19 @@ namespace CityInfo.API.Controllers
             return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));
         }
 
-        /**
-         * Get a single city
-         */
+        /// <summary>
+        /// Get a City by ID
+        /// </summary>
+        /// <param name="id">The ID of the city to get</param>
+        /// <param name="includePointsOfInterest">Whether or not to include Points of Interest</param>
+        /// <returns>An IActionResult</returns>
+        /// <response code="200">Returns the requested city</response>
+        /// <response code="404">Requested city is not found</response>
+        /// <response code="400">Bad Request</response>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetCity(int id, bool includePointsOfInterest = false)
         {
             var city = await _cityInfoRepository.GetCityAsync(id, includePointsOfInterest);
